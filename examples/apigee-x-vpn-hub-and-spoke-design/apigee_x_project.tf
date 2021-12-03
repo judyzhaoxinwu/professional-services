@@ -10,13 +10,12 @@
 ##########################################################
 ### Create a Google Cloud Project for Apigee X runtime
 ##########################################################
-
 resource "google_project" "apigee_x_project" {
   provider            = google
   project_id          = "apigee-x-project-${lower(random_id.random_suffix.hex)}"
   name                = "apigee-x-project-${lower(random_id.random_suffix.hex)}"
-  org_id              = "${var.gcp_org_id}"
-  billing_account     = "${var.gcp_billing_id}"
+  org_id              = var.gcp_org_id
+  billing_account     = var.gcp_billing_id
   auto_create_network = false
 }
 

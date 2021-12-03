@@ -23,7 +23,7 @@ resource "google_compute_network" "apigee_x_vpc" {
 resource "google_compute_subnetwork" "apigee_x_subnetwork" {
   project                  = google_project.apigee_x_project.project_id
   name                     = "apigee-x-subnetwork"
-  region                   = "${var.apigee_x_project_subnet}"
+  region                   = var.apigee_x_project_subnet
   network                  = google_compute_network.apigee_x_vpc.id
   ip_cidr_range            = "10.2.0.0/20"
   private_ip_google_access = true

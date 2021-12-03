@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
+######################################
 variable "gcp_org_id" {
   description = "Organization ID that the projects are created under"
   type        = string
@@ -27,73 +27,51 @@ variable "gcp_billing_id" {
 variable "cidr_mask" {
   description = "The CIDR mask for creating Apigee instance"
   type        = number
+  default     = 22
 }
  
 variable "subnet_1" {
   description = "The region for a subnet"
   type        = string
+  default     = "us-east1"
 }
 
 variable "subnet_2" {
   description = "The region for a subnet"
   type        = string
+  default     = "us-west2"
 }
 
 variable "apigee_x_project_subnet" {
   description = "The region where Apigee X runtime talks to GCP"
   type        = string
+  default     = "us-central1"
 }
 
 variable "apigee_x_project_router1_asn" {
   description = "ASN for router 1"
   type        = number
+  default     = 64514
 }
 
 variable "apigee_x_project_router2_asn" {
   description = "ASN for router 2"
   type        = number
+  default     = 64516
 }
 
 variable "backend_project_a_router1_asn" {
   description = "ASN for router 1"
   type        = number
+  default     = 64515
 }
 
 variable "backend_project_a_router2_asn" {
   description = "ASN for router 2"
   type        = number
-}
-
-variable "backend_a_vpc" {
-  type = string
-}
-
-variable "router_asn" {
-  type = number
-}
-
-variable "private_zone_domain" {
-  type = string
+  default     = 64517
 }
 
 variable "peering_zone_domain_a" {
   type = string
-}
-
-variable "forwarding_server_1" {
-  type = string
-}
-# data "google_project" "project" {}
-variable "project_id" {
-  description = "Project ID"
-  type        = string
-}
-
-variable "backend_a_project_id" {
-  description = "Project ID for backend a project"
-  type        = string
-}
-
-variable "region" {
-  description = "region"
 }

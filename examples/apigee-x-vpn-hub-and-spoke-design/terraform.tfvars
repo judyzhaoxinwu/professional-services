@@ -15,30 +15,17 @@
  */
 
 # Rename this file to terraform.tfvars and update the below variables
-
 gcp_org_id = "Your Org ID"
 gcp_billing_id= "Your Billing Account ID"
+peering_zone_domain_a = "" ##put in the suffix of the DNS you will use for naming the custom hostnames for your backend VMs or GKE clusters. E.g., dev.example.com
 
-subnet_1 = "us-east1"
-subnet_2 = "us-west2"
-apigee_x_project_subnet = "us-central1"
-cidr_mask = 22
+###the variables below have default values defined in variables.tf. Please put in new values here if you don't want to use the default values.
+# subnet_1 = ""
+# subnet_2 = ""
+# apigee_x_project_subnet = ""
+# cidr_mask =
 
-
-apigee_x_project_router1_asn = 64514
-backend_project_a_router1_asn = 64515
-apigee_x_project_router2_asn = 64516
-backend_project_a_router2_asn = 64517
-
-private_zone_domain = ""
-
-peering_zone_domain_a = "" 
-forwarding_server_1 = ""
-
-project_id = "" # Replace with your project ID
-backend_a_project_id = ""
-
-
-region     = ""
-backend_a_vpc = ""
-router_asn = 64514
+# apigee_x_project_router1_asn = 
+# backend_project_a_router1_asn = 
+# apigee_x_project_router2_asn = 
+# backend_project_a_router2_asn = 

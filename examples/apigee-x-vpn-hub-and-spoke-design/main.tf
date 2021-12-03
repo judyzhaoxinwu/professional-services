@@ -10,9 +10,6 @@
 ##########################################################
 ### Create a Google Cloud Project for the demo
 ##########################################################
-data "google_client_config" "current" {}
-
-
 resource "random_id" "random_suffix" {
   byte_length = 6
 }
@@ -23,10 +20,5 @@ resource "random_id" "secret" {
 
 locals {
   apigee_x_hostname = "${replace(google_compute_global_address.external_ip.address, ".", "-")}.nip.io"
-  secret = random_id.secret.b64_url
-
-
+  secret            = random_id.secret.b64_url
 }
-
-
-

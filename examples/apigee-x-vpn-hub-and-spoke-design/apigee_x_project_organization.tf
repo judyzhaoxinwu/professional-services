@@ -11,7 +11,7 @@
 ### Create an Apigee instance, environment and environment group
 #######################################################################
 resource "google_apigee_organization" "apigee_x_org" {
-  analytics_region                     = "${var.apigee_x_project_subnet}"
+  analytics_region                     = var.apigee_x_project_subnet
   display_name                         = "apigee-x-project"
   description                          = "Terraform-provisioned Apigee X Org."
   project_id                           = google_project.apigee_x_project.project_id
@@ -26,7 +26,7 @@ resource "google_apigee_organization" "apigee_x_org" {
 
 resource "google_apigee_instance" "apigee_x_instance" {
   name                     = "apigee-x-inst-${lower(random_id.random_suffix.hex)}"
-  location                 = "${var.apigee_x_project_subnet}"
+  location                 = var.apigee_x_project_subnet
   description              = "Terraform-provisioned Apigee Runtime Instance"
   org_id                   = google_apigee_organization.apigee_x_org.id
   disk_encryption_key_name = google_kms_crypto_key.apigee_x_key.id
@@ -53,4 +53,3 @@ resource "google_apigee_envgroup_attachment" "env_to_envgroup_attachment" {
   envgroup_id = google_apigee_envgroup.apigee_x_envgroup.id
   environment = google_apigee_environment.apigee_x_env.name
 }
-

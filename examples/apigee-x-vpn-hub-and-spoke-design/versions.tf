@@ -1,17 +1,17 @@
 terraform {
-  required_version = ">= 0.13"
+  required_version = ">= 0.13.0"
   required_providers {
     google = {
       source  = "hashicorp/google"
-      version = "4.0.0"
+      version = "< 5.0, >= 2.12"
     }
-    # google-beta = {
-    #   source  = "hashicorp/google"
-    #   version = "3.87.0"
-    # }
+    google-beta = {
+      source  = "hashicorp/google-beta"
+      version = "< 5.0, >= 3.45"
+    }
   }
-}
 
-provider "google" {
-  
+  provider_meta "google" {
+    module_name = "blueprints/terraform/terraform-google-network/v4.0.1"
+  }
 }
